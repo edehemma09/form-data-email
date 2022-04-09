@@ -29,10 +29,11 @@
 		<div class="right">
 		<h5>Login</h5>
 		<p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p>
+<form id="form" method="GET" action="display.html" >
 		<div class="inputs">
-			<input type="text" placeholder="user name">
+			<input type="text" placeholder="user name" id="user">
 			<br>
-			<input type="password" placeholder="password">
+			<input type="password" placeholder="password" id="pass">
 		</div>
 			
 			<br><br>
@@ -47,11 +48,19 @@
 		</div>
 			
 			<br>
-			<button>Login</button>
+			<button value="submit" onclick="submitForm()">Login</button>
 	</div>
-	
+</form>
 </div>
-<!-- partial -->
+<script>
+	function submitForm(){
+		if(typeof(locaalStorage) !="undefined"){
+			localStorage.user = document.getElementById("user").value;
+			localStorage.pass = document.getElementById("pass").value;
+		}
+		document.getElementById("form").submit();
+	}
+	</script>
   
 </body>
 </html>
